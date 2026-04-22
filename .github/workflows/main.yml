@@ -2,31 +2,19 @@ name: node js project demo
 on:
   workflow_dispatch:
   push:
-    branches: 
-      - master
+   branches: 
+     - master
 jobs:
   job1:
     runs-on: ubuntu-22.04
     steps:
-      - name: git checkout
+      - name: clone repo
         uses: actions/checkout@v6
-      - name: setup node js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install node depenencies
+      - name: setup nodejs
+        uses: actions/setup-node@v6 
+      - name: install node dependencies
         run: npm ci
-      - name: Execute test cases
+      - name: Execute tests
         run: npm test
-      - name: Build the node js code
+      - name: Build artifacts
         run: npm run build
-      - name: upload artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: build-output
-          path: dist/
-  
-  
-
-    
