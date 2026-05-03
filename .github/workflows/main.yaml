@@ -1,1 +1,12 @@
 name: node js git hub action 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+jobs:
+  job1:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v6
