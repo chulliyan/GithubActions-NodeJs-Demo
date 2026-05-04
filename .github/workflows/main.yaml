@@ -10,6 +10,11 @@ jobs:
       matrix:
         operating_systems: [windows-latest, ubuntu-latest]
         node_version: [20, 24]
+      exclude:
+        - operating_systems: windows-latest
+          node_version: 24
+        - operating_systems: ubuntu-latest
+          node_version: 20
     runs-on: ${{matrix.operating_systems}}
     steps:
       - name: checkout repo
