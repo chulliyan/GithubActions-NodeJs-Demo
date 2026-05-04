@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         operating_systems: [windows-latest, ubuntu-latest]
+        node_version: [20, 24]
     runs-on: ${{matrix.operating_systems}}
     steps:
       - name: checkout repo
@@ -16,7 +17,7 @@ jobs:
       - name: setups node js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: ${{matrix.node_version}}
           cache: npm
       - name: setup prerequisite
         run: npm ci
