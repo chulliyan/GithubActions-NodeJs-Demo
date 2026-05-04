@@ -8,7 +8,7 @@ jobs:
   job1:
     strategy:
       matrix:
-        operating_systems: [windows, ubuntu-latest]
+        operating_systems: [windows-latest, ubuntu-latest]
     runs-on: ${{matrix.operating_systems}}
     steps:
       - name: checkout repo
